@@ -32,7 +32,7 @@ TIME=$(date -d "1 day ago" +"%F")
 [ -d ${TB_BACK_DIR} ] && mv ${TB_BACK_DIR}/* ${BACK} || mkdir -p ${TB_BACK_DIR}
 
 #生成数据库文本文件用来循环
-${MYLOGIN} "show databases;" | egrep -v "^(Database|performance_schema|information_schema|mysql)" > /data/DB.file
+${MYLOGIN} "show databases;" | egrep -v "^(Database|performance_schema|information_schema|mysql)" > /data/back/DB.file
 echo "start -------------------------------------------------------> `date "+%F %T"`" 
 #创建一个打印进度条的函数、显得不单调
 jindu &
