@@ -20,8 +20,8 @@ done
 }
 jindu &
 #安装
-yum install vim gcc gcc-c++ wget autoconf  net-tools lrzsz iotop lsof iotop bash-completion -y &>/dev/null
-yum install curl policycoreutils openssh-server openssh-clients postfix libaio-devel -y &>/dev/null
+yum install vim gcc gcc-c++ wget autoconf  net-tools lrzsz iotop lsof  bash-completion -y &>/dev/null
+yum install curl policycoreutils openssh-server openssh-clients  libaio-devel -y &>/dev/null
 
 [ -f ${FULL_NAME} ] || { echo "The database source package does not exist" ; exit 1 ; }
 
