@@ -26,6 +26,7 @@ sed -i.bak '/post_max_size/c post_max_size = 16M' /etc/php.ini
 sed -i '/max_execution_tim/cmax_execution_time = 300' /etc/php.ini
 sed -i '/^max_input_time/cmax_input_time = 300' /etc/php.ini
 sed -i '/^;date.timezone/cdate.timezone = Asia/Shanghai' /etc/php.ini
+useradd -r zabbix
 
 systemctl start httpd
 exec bash
