@@ -11,7 +11,6 @@ PATH=$JAVA_HOME/bin:$PATH
 export JAVA_HOME PATH
 EOF
 
-source /etc/profile.d/java.sh
 
 tar xf ${DIR}/${ZABBIX} -C /opt
 cd /opt/zabbix-3.4.11 ; ./configure --prefix=/usr/local/zabbix --enable-server --enable-agent --with-mysql  --with-net-snmp --with-libcurl --with-libxml2 --enable-java 
@@ -23,3 +22,5 @@ sed -i.bak -r 's#(BASEDIR=/usr/local)#&/zabbix#g' /etc/init.d/zabbix_server
 sed -i.bak -r 's#(BASEDIR=/usr/local)#&/zabbix#g' /etc/init.d/zabbix_agentd
 sed -i.bak '/#ServerName/cServername www.xfy.com:80' /etc/httpd/conf/httpd.conf
 systemctl start httpd
+
+exec bash
