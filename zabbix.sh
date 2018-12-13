@@ -18,9 +18,14 @@ make -j && make install
 
 cp -r ${DIR}/zabbix-3.4.11/frontends/php/*  /var/www/html/
 cp /opt/zabbix-3.4.11/misc/init.d/fedora/core/* /etc/init.d/
+
 sed -i.bak -r 's#(BASEDIR=/usr/local)#&/zabbix#g' /etc/init.d/zabbix_server
 sed -i.bak -r 's#(BASEDIR=/usr/local)#&/zabbix#g' /etc/init.d/zabbix_agentd
 sed -i.bak '/#ServerName/cServername www.xfy.com:80' /etc/httpd/conf/httpd.conf
-systemctl start httpd
+sed -i.bak '/post_max_size/c post_max_size = 16M' /etc/php.ini
+sed -i '/max_execution_tim/cmax_execution_time = 300' /etc/php.ini
+sed -i '/^max_input_time/cmax_input_time = 300' /etc/php.ini
+sed -i '/^;date.timezone/cdate.timezone = Asia/Shanghai' /etc/php.ini
 
+systemctl start httpd
 exec bash
