@@ -17,7 +17,7 @@ cd /opt/zabbix-3.0.24 ; ./configure --prefix=/usr/local/zabbix --enable-server -
 make -j && make install 
 
 cp -r ${DIR}/zabbix-3.0.24/frontends/php/*  /var/www/html/
-cp /opt/zabbix-3.4.11/misc/init.d/fedora/core/* /etc/init.d/
+cp /opt/zabbix-3.0.24/misc/init.d/fedora/core/* /etc/init.d/
 
 sed -i.bak -r 's#(BASEDIR=/usr/local)#&/zabbix#g' /etc/init.d/zabbix_server
 sed -i.bak -r 's#(BASEDIR=/usr/local)#&/zabbix#g' /etc/init.d/zabbix_agentd
